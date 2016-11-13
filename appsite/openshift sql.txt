@@ -1,0 +1,28 @@
+
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',10,1,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小慧妹','2.jpg','https://yuxiu.douyu.com/1212771','小慧妹开始跳舞了管',1,0,'火辣',10,1,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小兔子啊','3.jpg','https://www.douyu.com/488131','新浪微博：茶树菇cute 直播时间：随缘',1,0,'可爱 甜美',10,1,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('進擊的小小白','4.jpg','https://www.douyu.com/1146342','群号：590853130 微博：猫了个喵qwp 火箭加房管，游艇加微信，欢迎骚扰^ω^',1,0,'甜美',10,1,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('灰白兔子噗叽','5.jpg','https://www.douyu.com/830386','534232291开黑群号 主播微博求关注OVO灰白兔子噗叽 每天中午2点开播嗷030求支持求弹幕求吐槽 /////主播是个二次元妹砸，不定时在微博更新自己出的角色，关注微博可观看更多信息 两百鱼翅给房管，火箭给 微信和QQ好友位OVO',1,0,'甜美',10,1,1);
+
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',10,2,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小慧妹','2.jpg','https://yuxiu.douyu.com/1212771','小慧妹开始跳舞了管',1,0,'火辣',10,2,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('小兔子啊','3.jpg','https://www.douyu.com/488131','新浪微博：茶树菇cute 直播时间：随缘',1,0,'可爱 甜美',10,2,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('進擊的小小白','4.jpg','https://www.douyu.com/1146342','群号：590853130 微博：猫了个喵qwp 火箭加房管，游艇加微信，欢迎骚扰^ω^',1,0,'甜美',10,2,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sStar`,`scId`,`swcId`) values('灰白兔子噗叽','5.jpg','https://www.douyu.com/830386','534232291开黑群号 主播微博求关注OVO灰白兔子噗叽 每天中午2点开播嗷030求支持求弹幕求吐槽 /////主播是个二次元妹砸，不定时在微博更新自己出的角色，关注微博可观看更多信息 两百鱼翅给房管，火箭给 微信和QQ好友位OVO',1,0,'甜美',10,2,1);

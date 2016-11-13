@@ -1,0 +1,167 @@
+
+http://www.777moban.com/
+
+建库 
+create database tvsite;
+
+//建admin表
+CREATE TABLE `admin` (  
+  `uId` int(11) NOT NULL AUTO_INCREMENT,  
+  `uAccount` varchar(40) NOT NULL,  
+  `uPassword` varchar(100) NOT NULL, 
+  `uZiploc` varchar(100) NOT NULL,
+  `uAnswer` varchar(100) NOT NULL,
+  PRIMARY KEY (`uId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//类别
+CREATE TABLE `cate` (  
+  `cId` int(11) NOT NULL AUTO_INCREMENT,  
+  `cName` varchar(100) NOT NULL,  
+  PRIMARY KEY (`cId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//网站类别
+CREATE TABLE `wcate` (  
+  `wcId` int(11) NOT NULL AUTO_INCREMENT,  
+  `wcName` varchar(100) NOT NULL,  
+  PRIMARY KEY (`wcId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//标签
+CREATE TABLE `tag` (  
+  `tId` int(11) NOT NULL AUTO_INCREMENT,  
+  `tName` varchar(100) NOT NULL,  
+  PRIMARY KEY (`tId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+//推荐
+CREATE TABLE `tj` (  
+  `tjId` int(11) NOT NULL AUTO_INCREMENT, 
+  `tjName` varchar(100) NOT NULL,  
+  `tjUrl` varchar(200) NOT NULL, 
+  `tjTag` varchar(100) NOT NULL,
+  `tjEmail` varchar(200) NOT NULL, 
+  PRIMARY KEY (`tjId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+//网址表
+CREATE TABLE `site` (  
+  `sId` int(11) NOT NULL AUTO_INCREMENT,  
+  `sName` varchar(100) NOT NULL, 
+  `sLogo` varchar(100), 
+  `sSite` varchar(200),
+  `sSummary` text NOT NULL, 
+  `sOnlineFlag` BOOLEAN,
+  `sClickTimes` int(11) NOT NULL,
+  `sTag` varchar(200),
+  `sWebFlag` BOOLEAN NOT NULL,
+  `scId` int(11) NOT NULL, 
+  `swcId` int(11) NOT NULL,   
+  PRIMARY KEY (`sId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//评论
+CREATE TABLE `pl` (  
+  `plId` int(11) NOT NULL AUTO_INCREMENT, 
+  `plUser` varchar(100), 
+  `plUserLogo` varchar(100), 
+  `plContent` text NOT NULL, 
+  `plDate` TIMESTAMP,
+  `plEmail` varchar(200),
+  `plSiteId` int(11) NOT NULL, 
+  PRIMARY KEY (`plId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+ALTER TABLE site ADD CONSTRAINT fk_site_cate FOREIGN KEY (scId) REFERENCES cate(cId);
+ALTER TABLE site ADD CONSTRAINT fk_site_wcate FOREIGN KEY (swcId) REFERENCES wcate(wcId);
+
+ALTER TABLE pl ADD CONSTRAINT fk_pl_site FOREIGN KEY (plSiteId) REFERENCES site(sId);
+
+插入测试数据
+insert into admin(`uId`,`uAccount`,`uPassword`,`uZiploc`,`uAnswer`) values(1,'admin','E10ADC3949BA59ABBE56E057F20F883E','我的名字?','风云');
+
+
+
+insert into cate(`cId`,`cName`) values(1,'萝莉');
+insert into cate(`cId`,`cName`) values(2,'御姐');
+insert into cate(`cId`,`cName`) values(3,'性感火辣');
+insert into cate(`cId`,`cName`) values(4,'清纯');
+insert into cate(`cId`,`cName`) values(5,'非主流');
+insert into cate(`cId`,`cName`) values(6,'明星');
+
+insert into wcate(`wcId`,`wcName`) values(1,'斗鱼');
+insert into wcate(`wcId`,`wcName`) values(2,'熊猫直播');
+
+
+insert into tag(`tId`,`tName`) values(1,'素颜');
+insert into tag(`tId`,`tName`) values(2,'二次元');
+insert into tag(`tId`,`tName`) values(3,'甜美');
+insert into tag(`tId`,`tName`) values(4,'可爱');
+insert into tag(`tId`,`tName`) values(5,'火辣');
+
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(1,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(2,'小慧妹','2.jpg','https://yuxiu.douyu.com/1212771','小慧妹开始跳舞了管',1,0,'火辣',1,1,1);
+
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(3,'小兔子啊','3.jpg','https://www.douyu.com/488131','新浪微博：茶树菇cute 直播时间：随缘',1,0,'可爱 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(4,'進擊的小小白','4.jpg','https://www.douyu.com/1146342','群号：590853130 微博：猫了个喵qwp 火箭加房管，游艇加微信，欢迎骚扰^ω^',1,0,'甜美',1,1,1);
+
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(5,'灰白兔子噗叽','5.jpg','https://www.douyu.com/830386','534232291开黑群号 主播微博求关注OVO灰白兔子噗叽 每天中午2点开播嗷030求支持求弹幕求吐槽 /////主播是个二次元妹砸，不定时在微博更新自己出的角色，关注微博可观看更多信息 两百鱼翅给房管，火箭给 微信和QQ好友位OVO',1,0,'甜美',1,1,1);
+
+
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(6,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(7,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(8,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(9,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(10,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(11,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(12,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(13,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(14,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(15,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(16,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(17,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(18,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(19,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(20,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(21,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+insert into site(`sId`,`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values(22,'小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,1,1);
+
+
+
+
+
+
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values('小美','1.jpg','https://www.douyu.com/641705','微博:叫咱小美就好 欢迎加入duangduang，qq群号码：150456647 周榜前三名给房管^_^ 冰哥说2个火箭可以直接给房管',1,0,'素颜 甜美',1,2,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values('小慧妹','2.jpg','https://yuxiu.douyu.com/1212771','小慧妹开始跳舞了管',1,0,'火辣',1,2,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values('小兔子啊','3.jpg','https://www.douyu.com/488131','新浪微博：茶树菇cute 直播时间：随缘',1,0,'可爱 甜美',1,2,1);
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values('進擊的小小白','4.jpg','https://www.douyu.com/1146342','群号：590853130 微博：猫了个喵qwp 火箭加房管，游艇加微信，欢迎骚扰^ω^',1,0,'甜美',1,2,1);
+
+
+insert into site(`sName`,`sLogo`,`sSite`,`sSummary`,`sOnlineFlag`,`sClickTimes`,`sTag`,`sWebFlag`,`scId`,`swcId`) values('灰白兔子噗叽','5.jpg','https://www.douyu.com/830386','534232291开黑群号 主播微博求关注OVO灰白兔子噗叽 每天中午2点开播嗷030求支持求弹幕求吐槽 /////主播是个二次元妹砸，不定时在微博更新自己出的角色，关注微博可观看更多信息 两百鱼翅给房管，火箭给 微信和QQ好友位OVO',1,0,'甜美',1,2,1);

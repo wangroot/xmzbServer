@@ -1,0 +1,58 @@
+2890408644@qq.com  密码 yf897411
+
+mysql 地址
+服务器: 127.3.59.2:3306
+
+
+Freenom免费域名.TK、.CF、.ML、.GA注册及使用方法
+
+http://www.freenom.com/
+
+xiaomei 
+Your Order Number is: 5388833148
+
+grassdev
+Your Order Number is: 2039244350
+
+域名  http://www.freenom.com/
+
+yf1823570554@sian.cn
+yf891423
+
+
+Making code changes
+
+Install the Git client for your operating system, and from your command line run
+
+git clone ssh://58102e1989f5cf06ba000129@appsite-myemoney.rhcloud.com/~/git/appsite.git/
+cd appsite/
+
+This will create a folder with the source code of your application. After making a change, add, commit, and push your changes.
+
+git add .
+git commit -m 'My changes'
+git push
+
+When you push changes the OpenShift server will report back its status on deploying your code. The server will run any of your configured deploy hooks and then restart the application.
+
+
+
+MySQL 5.5 database added.  Please make note of these credentials:
+
+       Root User: adminIUfdKkT
+   Root Password: eexjLq2l_3Rn
+   Database Name: appsite
+
+Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+
+You can manage your new MySQL database by also embedding phpmyadmin.
+The phpmyadmin username and password will be the same as the MySQL credentials above.
+
+
+
+Please make note of these MySQL credentials again:
+  Root User: adminIUfdKkT
+  Root Password: eexjLq2l_3Rn
+URL: https://appsite-myemoney.rhcloud.com/phpmyadmin/
+
+
